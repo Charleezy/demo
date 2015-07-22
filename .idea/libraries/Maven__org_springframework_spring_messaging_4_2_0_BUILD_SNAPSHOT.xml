@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework:spring-messaging:4.2.0.BUILD-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/4.2.0.BUILD-SNAPSHOT/spring-messaging-4.2.0.BUILD-20150722.122200-597.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/4.2.0.BUILD-SNAPSHOT/spring-messaging-4.2.0.BUILD-20150722.122200-597-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/4.2.0.BUILD-SNAPSHOT/spring-messaging-4.2.0.BUILD-20150722.122200-597-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
