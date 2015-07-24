@@ -25,4 +25,28 @@ public class Customer {
                 id, firstName, lastName);
     }
 
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public String getLastName(){
+        return this.lastName;
+    }
+
+    public long getID(){
+        return this.id;
+    }
+
+    public void setFirstName(String nFirstName) {
+        this.firstName = nFirstName;
+    }
+
+    public void setLastName(String nLastName) {
+        this.lastName = nLastName;
+    }
+
+    public void setID(long nID){
+        this.id = nID;
+    }
+
 }
