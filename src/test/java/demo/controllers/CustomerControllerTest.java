@@ -33,17 +33,6 @@ public class CustomerControllerTest {
         Assert.assertNotNull(controller);
     }
 
-    /*@Test
-    public void multiplicationOfZeroIntegersShouldReturnZero() {
-
-        CustomerRepository customerRepository;
-
-        // MyClass is tested
-        CustomerController tester = new CustomerController(customerRepository);
-
-        // assert statements
-        assertEquals("getText must return passed value", "marco polo", tester.getText("marco polo"));
-    }*/
 
     @Test
     public void testAddCustomer() {
