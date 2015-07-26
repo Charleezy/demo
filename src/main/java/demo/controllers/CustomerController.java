@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
@@ -23,11 +26,12 @@ public class CustomerController {
         custRepo = customerRepository;
     }
 
-    @RequestMapping(value = "/", produces="application/json")
+    @RequestMapping(value = "/", method=RequestMethod.GET)
 //    Iterable<Customer> home(){
     String home() {
-        List<Customer> customers = custRepo.findAll();
-        return customers.toString();
+//        List<Customer> customers = custRepo.findAll();
+//        return customers.toString();
+        return "forward:/index.html";
 //        return customers;
     }
 
