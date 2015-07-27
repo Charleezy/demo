@@ -1,1 +1,6 @@
+demo\repositories\CustomerRepository.class
+demo\controllers\HomeController.class
 demo\DemoApplication.class
+demo\Customer.class
+demo\controllers\CustomerController.class
+demo\configuration\DatabaseConfiguration.class

@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by Charlie on 7/18/2015.
  */
-@RestController
+@Controller
 public class CustomerController {
 
     CustomerRepository custRepo;
@@ -31,7 +31,7 @@ public class CustomerController {
     String home() {
 //        List<Customer> customers = custRepo.findAll();
 //        return customers.toString();
-        return "forward:/index.html";
+        return "index.html";
 //        return customers;
     }
 
