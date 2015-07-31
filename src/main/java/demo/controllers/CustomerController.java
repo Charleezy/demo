@@ -46,18 +46,11 @@ public class CustomerController {
         return "saved";
     }
 
-//    @RequestMapping(value = "/getText", params = {"text"}, method = RequestMethod.GET)
-//    public String getText(String text) {
-//        return text;
-//    }
-
     @RequestMapping(value= "/getText",method=RequestMethod.GET, produces="application/json")
     public ResponseEntity<String> addUser(@ModelAttribute(value="inputText") String inputText, BindingResult result ){
         ResponseEntity response = new ResponseEntity(HttpStatus.I_AM_A_TEAPOT);
         if(!result.hasErrors()) {
             response = response.accepted().headers(new HttpHeaders()).body("{\"statusText\": \"" + inputText + "\"}");
-//            response = new ResponseEntity<>("{\"statusText\": \"" + inputText + "\"}", new HttpHeaders(), HttpStatus.OK);
-//        response.body("blah");
         }else{
             response = response.badRequest().headers(new HttpHeaders()).body(null);
         }

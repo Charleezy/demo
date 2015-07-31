@@ -82,6 +82,21 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
+		<!--lombok getters and setter annotation-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--Hibernate v8 supports DateTime-->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-java8</artifactId>
+			<version>5.0.0.CR2</version>
+		</dependency>
+
 	</dependencies>
 	
 	<build>
