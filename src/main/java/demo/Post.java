@@ -2,13 +2,10 @@ package demo;
 
 import javax.persistence.*;
 
-import demo.repositories.UserRepository;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * Created by Charlie on 7/30/2015.
@@ -19,15 +16,12 @@ public class Post {
 
     protected Post() {}
 
-    /*@Autowired
-    private UserRepository userRepo;*/
 
     public Post(String inputText, String userName) {
         this.text = inputText;
         this.creationDate = LocalDateTime.now();
-        //List<User> users = userRepo.findByUserName(userName);
-        //this.user = users.get(0);
-
+        //TODO: username should go in user table
+        this.userName = userName;
     }
 
 
@@ -38,11 +32,9 @@ public class Post {
     @Setter
     private long postID;
 
-    @ManyToOne
     @Getter
     @Setter
-    @JoinColumn(name="userID")
-    private User user;
+    private String userName;
 
     @Getter
     @Setter

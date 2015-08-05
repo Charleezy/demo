@@ -4,6 +4,7 @@
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/resources/css/postStyles.css" />
     <script type="application/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="application/javascript">
@@ -16,13 +17,44 @@
                     type: "GET",
                     url: "/savePost",
                     contentType: 'application/json; charset=utf-8',
-                    data: "inputText=" + inputText + "&amp;userName=" + userName,
+                    data: { inputText: inputText, userName: userName },
                     success: function (data, textStatus, xhr) {
                         // we have the response
                         /*$('#info').html(response);
                          $('#name').val('');
                          $('#education').val('');*/
-                        $("#returnField").val(data.statusText);
+                        $("#returnField").val(data);
+                    },
+                    error: function (data, textStatus, xhr) {
+                        alert('Error: ' + data);
+                    }
+                });
+                return false;
+            });
+
+            $("#findPosts").submit(function () {
+                var userName = $("#userNameForPosts").val();
+
+                $.ajax({
+                    type: "GET",
+                    url: "/posts/index",
+                    contentType: 'application/json; charset=utf-8',
+                    data: {userName: userName},
+                    success: function (data, textStatus, xhr) {
+                        $('#commentContainer').empty();
+                        data.forEach(function(post) {
+                            var comment = $('<div class="comment"></div>');
+                            $('#commentContainer').append(comment);
+
+                            var postText = $('<div class="commentText"></div>');
+                            $(postText).text(post.text);
+                            comment.append(postText);
+
+                            //Display this information on the form, next to each post. Assumed by "form", the homework meant "index"
+                            var postMeta = $('<div class="commmentMeta"></div>');
+                            $(postMeta).text(post.creationDate.month + "-" + post.creationDate.dayOfMonth + "-" + post.creationDate.year);
+                            comment.append(postMeta);
+                        });
                     },
                     error: function (data, textStatus, xhr) {
                         alert('Error: ' + data);
@@ -34,6 +66,7 @@
     </script>
 </head>
 <body>
+<h2>Create a new post</h2>
 <form id="getText" method="get" action="">
     Enter text here: <input type="text" id="textField"/>
     Username: <input type="text" id="userName"/>
@@ -41,5 +74,17 @@
 
 </form>
 Response: <input type="text" id="returnField" readonly="1" />
+
+<h2>Find all posts by a user</h2>
+<form id="findPosts" method="get" action="">
+    Username: <input type="text" id="userNameForPosts"/>
+    <button type="submit" class="btn btn-default">Find</button>
+</form>
+
+<div id="commentContainer" class="container">
+
+</div>
+
+
 </body>
 </html>
